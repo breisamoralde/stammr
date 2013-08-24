@@ -1,0 +1,27 @@
+<h1>Listing stammr_posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stammr_posts.each do |stammr_post| %>
+      <tr>
+        <td><%= stammr_post.content %></td>
+        <td><%= link_to 'Show', stammr_post %></td>
+        <td><%= link_to 'Edit', edit_stammr_post_path(stammr_post) %></td>
+        <td><%= link_to 'Destroy', stammr_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stammr post', new_stammr_post_path %>
