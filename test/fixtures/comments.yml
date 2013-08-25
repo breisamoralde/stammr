@@ -3,11 +3,11 @@
 one:
   content: MyString
   name: MyString
-  stammer_post_id: 1
+  stammr_post_id: 1
   date_created: 2013-08-25
 
 two:
   content: MyString
   name: MyString
-  stammer_post_id: 1
+  stammr_post_id: 1
   date_created: 2013-08-25

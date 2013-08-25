@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.all
+    @comment = Comment.new
   end
 
   # GET /comments/1
@@ -26,10 +27,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.date_created = Date.today
+    flash[:notice] = "Comment was successfully created."
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @comment }
+        format.html { redirect_to :action => "index" }
+        format.json { render action: 'index', status: :created, comment: Comment.new, location: @comment }
       else
         format.html { render action: 'new' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -69,6 +71,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :name, :stammer_post_id, :date_created)
+      params.require(:comment).permit(:content, :name, :stammr_post_id, :date_created)
     end
 end

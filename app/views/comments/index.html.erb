@@ -1,4 +1,6 @@
-<h1>Listing comments</h1>
+<h1>Stammr</h1>
+<p id="notice"><%= notice %></p>
+<%= render 'form' %>
 
 <table>
   <thead>
@@ -18,7 +20,7 @@
       <tr>
         <td><%= comment.content %></td>
         <td><%= comment.name %></td>
-        <td><%= comment.stammer_post_id %></td>
+        <td><%= comment.stammr_post_id %></td>
         <td><%= comment.date_created %></td>
         <td><%= link_to 'Show', comment %></td>
         <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
@@ -28,6 +30,3 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Comment', new_comment_path %>
