@@ -1,5 +1,10 @@
 <h1>Stammr <small> beta </small></h1>
-<p id="notice"><%= notice %></p>
+
+<%= @random_stammr.content %>
+
+<p id="notice">
+    <%= notice %>
+</p>
 <%= render 'form' %>
 
 <table>
@@ -13,12 +18,12 @@
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
+    <% @comments.each do |commentInstance| %>
       <tr>
-        <td><%= comment.content %></td>
-        <td><%= comment.name %></td>
-        <td><%= comment.stammr_post_id %></td>
-        <td><%= comment.date_created %></td>
+        <td><%= commentInstance.content %></td>
+        <td><%= commentInstance.name %></td>
+        <td><%= commentInstance.stammr_post_id %></td>
+        <td><%= commentInstance.date_created %></td>
       </tr>
     <% end %>
   </tbody>

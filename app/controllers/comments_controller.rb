@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
   # GET /comments.json
   # using
   def index
-    @comments = Comment.all
+    @random_stammr = get_random_stammr
+    @comments = @random_stammr.comments
     @comment = Comment.new
   end
 
@@ -29,14 +30,16 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.date_created = Date.today
-    flash[:notice] = "Comment was successfully created."
+    print(comment_params)
+
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to :action => "index" }
-        format.json { render action: 'index', status: :created, comment: Comment.new, location: @comment }
+        flash[:notice] = "Your comment was successfully added."
+        format.html { redirect_to root_url}
+        format.json { render action: 'index', status: :created, comment: Comment.new}
       else
-        format.html { render action: "index" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.html { redirect_to root_url}
+        format.json { render action: 'index', status: :unprocessable_entity, comment: @comment}
       end
     end
   end
@@ -69,6 +72,11 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def get_random_stammr
+      random_id = rand(StammrPost.count) + 1
+      @random_stammr = StammrPost.find(random_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
