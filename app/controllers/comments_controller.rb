@@ -30,7 +30,10 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.date_created = Date.today
-    print(comment_params)
+
+    if comment_params[:name].blank?
+      @comment.name = "Anonymous"
+    end
 
     respond_to do |format|
       if @comment.save
