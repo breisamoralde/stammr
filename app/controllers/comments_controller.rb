@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 
   # GET /comments
   # GET /comments.json
+  # using
   def index
     @comments = Comment.all
     @comment = Comment.new
@@ -24,6 +25,7 @@ class CommentsController < ApplicationController
 
   # POST /comments
   # POST /comments.json
+  # using
   def create
     @comment = Comment.new(comment_params)
     @comment.date_created = Date.today

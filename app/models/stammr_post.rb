@@ -1,3 +1,4 @@
 class StammrPost < ActiveRecord::Base
-  has_many :stammr_posts
+  has_many :comments,  :dependent => :destroy
+  validates :content,  presence: true
 end

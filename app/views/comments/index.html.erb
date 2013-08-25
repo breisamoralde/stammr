@@ -9,9 +9,6 @@
       <th>Name</th>
       <th>Stammer post</th>
       <th>Date created</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
@@ -22,9 +19,6 @@
         <td><%= comment.name %></td>
         <td><%= comment.stammr_post_id %></td>
         <td><%= comment.date_created %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
