@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @comment.content %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @comment.name %>
+</p>
+
+<p>
+  <strong>Stammer post:</strong>
+  <%= @comment.stammer_post_id %>
+</p>
+
+<p>
+  <strong>Date created:</strong>
+  <%= @comment.date_created %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>
