@@ -35,7 +35,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to :action => "index" }
         format.json { render action: 'index', status: :created, comment: Comment.new, location: @comment }
       else
-        format.html { render action: 'new' }
+        format.html { render action: "index" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
