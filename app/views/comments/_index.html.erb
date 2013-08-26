@@ -1,0 +1,36 @@
+<h1>
+    <%= link_to "Stammr", root_url %>
+    <small> beta </small>
+</h1>
+
+<%= @random_stammr.content %>
+<br/>
+<%= link_to "Stammer", root_url %>
+
+
+<p id="notice">
+    <%= notice %>
+</p>
+<%= render 'form' %>
+
+<table>
+    <thead>
+    <tr>
+        <th>Content</th>
+        <th>Name</th>
+        <th>Stammer post</th>
+        <th>Date created</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @comments.each do |commentInstance| %>
+        <tr>
+            <td><%= commentInstance.content %></td>
+            <td><%= commentInstance.name %></td>
+            <td><%= commentInstance.stammr_post_id %></td>
+            <td><%= commentInstance.date_created %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>

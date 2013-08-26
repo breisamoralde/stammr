@@ -5,9 +5,14 @@ class CommentsController < ApplicationController
   # GET /comments.json
   # using
   def index
-    @random_stammr = get_random_stammr
+    if session[:id].nil? || session[:id].blank?
+      @random_stammr = get_random_stammr
+    else
+      @random_stammr = StammrPost.find(session[:id])
+    end
     @comments = @random_stammr.comments
     @comment = Comment.new
+    session[:id] = nil
   end
 
   # GET /comments/1
@@ -17,6 +22,9 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
+    printf(">>>>>>>>>>>>>>" + session[:id] )
+    @random_stammr = StammrPost.find(session[:id])
+    @comments = @random_stammr.comments
     @comment = Comment.new
   end
 
@@ -38,6 +46,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         flash[:notice] = "Your comment was successfully added."
+        session[:id] = comment_params[:stammr_post_id]
         format.html { redirect_to root_url}
         format.json { render action: 'index', status: :created, comment: Comment.new}
       else
@@ -75,6 +84,10 @@ class CommentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
       @comment = Comment.find(params[:id])
+    end
+
+    def get_stammr
+      @random_stammr = StammrPost.find(comment_params[:stammr_post_id])
     end
 
     def get_random_stammr
