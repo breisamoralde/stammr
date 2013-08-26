@@ -15,22 +15,6 @@ class CommentsController < ApplicationController
     session[:id] = nil
   end
 
-  # GET /comments/1
-  # GET /comments/1.json
-  def show
-  end
-
-  # GET /comments/new
-  def new
-    printf(">>>>>>>>>>>>>>" + session[:id] )
-    @random_stammr = StammrPost.find(session[:id])
-    @comments = @random_stammr.comments
-    @comment = Comment.new
-  end
-
-  # GET /comments/1/edit
-  def edit
-  end
 
   # POST /comments
   # POST /comments.json
@@ -53,30 +37,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to root_url}
         format.json { render action: 'index', status: :unprocessable_entity, comment: @comment}
       end
-    end
-  end
-
-  # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
-  def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /comments/1
-  # DELETE /comments/1.json
-  def destroy
-    @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to comments_url }
-      format.json { head :no_content }
     end
   end
 
