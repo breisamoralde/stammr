@@ -1846,7 +1846,9 @@ footer {
     font-weight: 700; }
   footer p {
     font-size: 15px;
-    line-height: 20px; }
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
 
 .footer-title {
   margin: 0 0 22px;
@@ -1860,11 +1862,11 @@ footer {
     width: 216px; }
 
 .footer-banner {
-  background-color: #1abc9c;
+  background-color: #34495E;
   color: #cff3ec;
   margin-left: 42px;
-  min-height: 286px;
-  padding: 0 30px 30px; }
+  padding: 0 30px 30px;
+  min-height: 180px}
   .footer-banner .footer-title {
     color: white; }
   .footer-banner a {

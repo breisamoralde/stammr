@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     else
       @random_stammr = StammrPost.find(session[:id])
     end
-    @comments = @random_stammr.comments
+    @comments = @random_stammr.comments(:order => "created_at asc")
     @comment = Comment.new
     session[:id] = nil
   end
@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
   # using
   def create
     @comment = Comment.new(comment_params)
-    @comment.date_created = Date.today
 
     if comment_params[:name].blank?
       @comment.name = "Anonymous"
