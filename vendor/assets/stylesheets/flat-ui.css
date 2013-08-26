@@ -188,7 +188,7 @@ a {
   transition: 0.25s;
   -webkit-backface-visibility: hidden; }
   a:hover {
-    color: #2ecc71;
+    color: #E1F2FD;
     text-decoration: none; }
 
 h1 {
@@ -1059,7 +1059,7 @@ textarea[readonly] {
 input,
 textarea,
 .uneditable-input {
-  width: 192px; }
+  width: 100%; }
 
 .checkbox,
 .radio {

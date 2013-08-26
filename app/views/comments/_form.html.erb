@@ -6,17 +6,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name, :placeholder => "Optional"%>
   </div>
 
     <%= f.hidden_field :stammr_post_id, :value=> @random_stammr.id %>
 
   <div class="field">
-     <%= f.label :content %><br>
+     <%= f.label :content %>
      <%= f.text_area :content, :placeholder => "Your anwser here.", :required => "required"   %>
    </div>
-   <div class="actions">
-    <%= f.submit "Comment", :class=> "btn btn-large btn-block"%>
-   </div>
+
+    <div class="actions">
+       <div class="stammr_btn">
+        <%= f.submit "Comment", :class=> "btn btn-large btn-block"%>
+       </div>
+       <div class="stammr_btn">
+            <%= link_to "Stammr", root_url, :class => "btn btn-large btn-block btn-info" %>
+       </div>
+    </div>
 <% end %>

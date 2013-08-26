@@ -1,17 +1,16 @@
-<h1>
-    <%= link_to "Stammr", root_url %>
-    <small> beta </small>
-</h1>
 
-<%= @random_stammr.content %>
-<br/>
-<%= link_to "Stammer", root_url %>
+<div class="stammr_post tile">
+    <%= @random_stammr.content %>
+</div>
 
-
-<p id="notice">
-    <%= notice %>
-</p>
-<%= render 'form' %>
+<div class="stammr_post tile">
+    <p id="notice">
+        <%= notice %>
+    </p>
+    <div class="comment_form">
+        <%= render 'form' %>
+    </div>
+</div>
 
 <table>
     <thead>
