@@ -1,21 +1,15 @@
-* Ruby version :
+Stammr 
 
-* System dependencies
+This is an experimental site created for 
 
-* Configuration
+the sole purpose of studying Ruby on Rails. 
 
-* Database creation
+Created with:
 
-* Database initialization
+Ruby 1.9.3p362 (2012-12-25 revision 38607) [i686-linux]
 
-* How to run the test suite
+Rails 4.0.0
 
-* Services (job queues, cache servers, search engines, etc.)
+Postgres: pg (0.16.0)
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Deployed in Heroku: http://stammr.herokuapp.com/
